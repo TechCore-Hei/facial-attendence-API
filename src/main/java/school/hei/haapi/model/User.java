@@ -57,6 +57,10 @@ public class User implements Serializable {
   @Enumerated(EnumType.STRING)
   private Status status;
 
+  @NotBlank(message = "Picture link is mandatory")
+  @Column(unique = true)
+  private String picture;
+
   @NotBlank(message = "Phone number is mandatory")
   private String phone;
 
@@ -74,7 +78,6 @@ public class User implements Serializable {
   @Type(type = "pgsql_enum")
   @Enumerated(EnumType.STRING)
   private Role role;
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {

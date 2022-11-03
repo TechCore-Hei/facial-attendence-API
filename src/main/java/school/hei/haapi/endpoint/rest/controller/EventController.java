@@ -3,7 +3,6 @@ package school.hei.haapi.endpoint.rest.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-//import school.hei.haapi.endpoint.rest.mapper.EventMapper;
 import school.hei.haapi.endpoint.rest.mapper.EventMapper;
 import school.hei.haapi.endpoint.rest.model.Event;
 import school.hei.haapi.service.EventService;

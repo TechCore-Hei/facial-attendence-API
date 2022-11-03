@@ -10,13 +10,12 @@ import school.hei.haapi.model.BoundedPageSize;
 import school.hei.haapi.model.EventParticipant;
 import school.hei.haapi.model.PageFromOne;
 import school.hei.haapi.repository.EventParticipantRepository;
-import school.hei.haapi.service.AWS.RekognitionService;
 
 @Service
 @AllArgsConstructor
 public class EventParticipantService {
     private final EventParticipantRepository eventParticipantRepository;
-    private final RekognitionService rekognitionService;
+    private final CompareFaceService rekognitionService;
 
     public List<EventParticipant> getAll(PageFromOne page,
                                          BoundedPageSize pageSize, String eventId, String ref,
@@ -44,7 +43,7 @@ public class EventParticipantService {
         for (EventParticipant participant : eventParticipantList) {
             if (rekognitionService.compareFaces(toCompare, participant.getUser().getPicture())
                     .getFaceMatches().get(0).getSimilarity() >=
-                    RekognitionService.SIMILARITY_THRESHOLD) {
+                    CompareFaceService.SIMILARITY_THRESHOLD) {
                 participant.setStatus(EventParticipant.StatusEnum.HERE);
             }
             participant.setStatus(EventParticipant.StatusEnum.MISSING);

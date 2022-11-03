@@ -21,6 +21,7 @@ public class AwsService {
 
     @Autowired
     private AmazonS3 amazonS3;
+
     @Value("${s3.bucket.name}")
     private String s3BucketName;
 

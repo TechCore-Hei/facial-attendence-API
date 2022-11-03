@@ -3,7 +3,6 @@ package school.hei.haapi.endpoint.rest.mapper;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import school.hei.haapi.endpoint.rest.model.CreateEventParticipants;
 import school.hei.haapi.endpoint.rest.model.EventParticipant;

@@ -67,4 +67,11 @@ public class UserService {
         .findByRoleAndRefContainingIgnoreCaseAndFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(
            role, ref, firstName, lastName, pageable);
   }
+  public List<User> getByGroup(PageFromOne page, BoundedPageSize pageSize, User.Role role,
+                               String groupId) {
+    Pageable pageable =
+            PageRequest.of(page.getValue() - 1, pageSize.getValue(), Sort.by(ASC, "ref"));
+    return userRepository.findByRoleAndGroup_Id(role, groupId, pageable);
+  }
+
 }

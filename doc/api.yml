@@ -45,6 +45,30 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+  '/whoamiFace':
+    get :
+      tags :
+        - Security
+      summary: Who am I? Tells you who you are.
+      operationId: whoami
+      responses:
+        '200':
+          description: Who you are
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Whoami'
+        '400':
+          $ref: '#/components/responses/400'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+
   '/ping':
     get:
       tags:
@@ -1145,6 +1169,12 @@ components:
             - MANAGER
         bearer:
           type: string
+    WhoamiFace:
+      properties:
+        principal :
+          $ref: '#/components/schemas/Whoami'
+        picture:
+          type : string
     User:
       properties:
         id:

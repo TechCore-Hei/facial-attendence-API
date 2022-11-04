@@ -18,6 +18,16 @@ public class Principal implements UserDetails {
   private final User user;
   private final String bearer;
 
+  private String picture ;
+
+  public String getPicture() {
+    return picture;
+  }
+
+  public void setPicture(String picture) {
+    this.picture = picture;
+  }
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return List.of(Role.valueOf(user.getRole().toString()));
